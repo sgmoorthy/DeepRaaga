@@ -6,6 +6,6 @@ description: > # your text below (remove <br> elements if you don't need line br
   <br><br>
   <a href="https://www.deepRaaga.io">Click here for Demo/a> 
   
-#theme: jekyll-theme-minimal
-theme: jekyll-theme-minimal-mistakes
+theme: jekyll-theme-minimal
+#theme: jekyll-theme-minimal-mistakes
 google_analytics: UA-145472962-1 # your Google Analytics tracking ID here
