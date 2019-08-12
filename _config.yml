@@ -1,0 +1,10 @@
+title: Deep Raaga # title
+logo: "/images/logo.png?raw=true" # your photo (or logo) here
+description: > # your text below (remove <br> elements if you don't need line breaks)
+  An effort to teach Indian Classical music to AI 
+
+  <br><br>
+  <a href="https://www.deepRaaga.io">Click here for Demo/a> 
+  
+theme: jekyll-theme-minimal
+google_analytics: UA-000000-0 # your Google Analytics tracking ID here
