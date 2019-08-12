@@ -4,7 +4,7 @@ description: > # your text below (remove <br> elements if you don't need line br
   An effort to teach Indian Classical music to AI 
 
   <br><br>
-  <a href="https://www.deepRaaga.io">Click here for Demo/a> 
+  <a href="https://www.deepRaaga.io">Click here for Demo </a> 
   
 theme: jekyll-theme-minimal
 #theme: jekyll-theme-minimal-mistakes
