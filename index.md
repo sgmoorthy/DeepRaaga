@@ -2,7 +2,7 @@
 
 **DeepRaaga** is aimed to teach & train AI with Indian classical music and to generate classical ragas ,and to see how AI having fun with Carnatic music. 
 
-Tools <br> </br>
+<br>Tools  </br>
 <img src = "https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" height="48" width="48">
 <img src = "https://magenta.tensorflow.org/assets/magenta-logo-bottom-text.png" height="48" width="48">
 
@@ -22,7 +22,7 @@ use convert_dir_to_note_sequences.py
 
 >Converts music files to NoteSequence protos and writes TFRecord file.
 >Currently supports MIDI (.mid, .midi) and MusicXML (.xml, .mxl) files.
-Example usage: <br></br>
+<br>Example usage: </br>
  ' $ python magenta/scripts/convert_dir_to_note_sequences.py \
     --input_dir=/path/to/input/dir \
     --output_file=/path/to/tfrecord/file \
