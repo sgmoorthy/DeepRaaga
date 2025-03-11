@@ -38,6 +38,22 @@ ma_variants = ['F', 'F#']
 dha_variants = ['A', 'A#']
 ni_variants = ['B', 'C']
 
+# Define Melakarta raga names
+melakarta_names = {
+    1: 'Kanakangi', 2: 'Ratnangi', 3: 'Ganamurthi', 4: 'Vanaspathi', 5: 'Manavathi', 6: 'Tanarupi',
+    7: 'Senavathi', 8: 'Hanumathodi', 9: 'Dhenuka', 10: 'Natakapriya', 11: 'Kokilapriya', 12: 'Rupavathi',
+    13: 'Gayakapriya', 14: 'Vakulabharanam', 15: 'Mayamalavagowla', 16: 'Chakravakam', 17: 'Suryakantam', 18: 'Hatakambari',
+    19: 'Jhankaradhwani', 20: 'Natabhairavi', 21: 'Keeravani', 22: 'Kharaharapriya', 23: 'Gourimanohari', 24: 'Varunapriya',
+    25: 'Mararanjani', 26: 'Charukesi', 27: 'Sarasangi', 28: 'Harikambhoji', 29: 'Dheerasankarabharanam', 30: 'Naganandini',
+    31: 'Yagapriya', 32: 'Ragavardhini', 33: 'Gangeyabhushani', 34: 'Vagadheeswari', 35: 'Shulini', 36: 'Chalanata',
+    37: 'Salagam', 38: 'Jalarnavam', 39: 'Jhalavarali', 40: 'Navanitam', 41: 'Pavani', 42: 'Raghupriya',
+    43: 'Gavambodhi', 44: 'Bhavapriya', 45: 'Shubhapantuvarali', 46: 'Shadvidamargini', 47: 'Suvarnangi', 48: 'Divyamani',
+    49: 'Dhavalambari', 50: 'Namanarayani', 51: 'Kamavardhini', 52: 'Ramapriya', 53: 'Gamanashrama', 54: 'Vishwambhari',
+    55: 'Shamalangi', 56: 'Shanmukhapriya', 57: 'Simhendramadhyamam', 58: 'Hemavathi', 59: 'Dharmavathi', 60: 'Neetimathi',
+    61: 'Kantamani', 62: 'Rishabhapriya', 63: 'Latangi', 64: 'Vachaspathi', 65: 'Mechakalyani', 66: 'Chitrambari',
+    67: 'Sucharitra', 68: 'Jyotiswarupini', 69: 'Dhatuvardani', 70: 'Nasikabhushani', 71: 'Kosalam', 72: 'Rasikapriya'
+}
+
 # Create output directory if it doesn't exist
 output_dir = os.path.join(os.path.dirname(__file__), 'midi', 'melakarta')
 os.makedirs(output_dir, exist_ok=True)
@@ -62,8 +78,11 @@ for ri in ri_variants:
                     # Create MIDI file
                     midi_data = create_raga_sequence(scale)
                     
-                    # Save the MIDI file with raga number
-                    filename = f'melakarta_{raga_number:02d}.mid'
+                    # Get the raga name and create filename
+                    raga_name = melakarta_names[raga_number]
+                    filename = f'{raga_number:02d}_{raga_name}.mid'
+                    
+                    # Save the MIDI file with raga number and name
                     midi_data.write(os.path.join(output_dir, filename))
                     
                     raga_number += 1
