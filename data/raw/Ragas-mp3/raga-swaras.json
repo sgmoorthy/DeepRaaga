@@ -1,0 +1,33 @@
+{
+    "ragas": [
+      { "name": "Kanakangi", "ascending": "S R1 G1 M1 P D1 N1 S'", "descending": "S' N1 D1 P M1 G1 R1 S" },
+      { "name": "Ratnangi", "ascending": "S R1 G1 M1 P D1 N2 S'", "descending": "S' N2 D1 P M1 G1 R1 S" },
+      { "name": "Ganamurti", "ascending": "S R1 G1 M1 P D1 N3 S'", "descending": "S' N3 D1 P M1 G1 R1 S" },
+      { "name": "Vanaspati", "ascending": "S R1 G1 M1 P D2 N2 S'", "descending": "S' N2 D2 P M1 G1 R1 S" },
+      { "name": "Manavati", "ascending": "S R1 G1 M1 P D2 N3 S'", "descending": "S' N3 D2 P M1 G1 R1 S" },
+      { "name": "Tanarupi", "ascending": "S R1 G1 M1 P D3 N3 S'", "descending": "S' N3 D3 P M1 G1 R1 S" },
+      { "name": "Senavati", "ascending": "S R1 G2 M1 P D1 N1 S'", "descending": "S' N1 D1 P M1 G2 R1 S" },
+      { "name": "Hanumatodi", "ascending": "S R1 G2 M1 P D1 N2 S'", "descending": "S' N2 D1 P M1 G2 R1 S" },
+      { "name": "Dhenuka", "ascending": "S R1 G2 M1 P D1 N3 S'", "descending": "S' N3 D1 P M1 G2 R1 S" },
+      { "name": "Natakapriya", "ascending": "S R1 G2 M1 P D2 N2 S'", "descending": "S' N2 D2 P M1 G2 R1 S" },
+      { "name": "Kokilapriya", "ascending": "S R1 G2 M1 P D2 N3 S'", "descending": "S' N3 D2 P M1 G2 R1 S" },
+      { "name": "Rupavati", "ascending": "S R1 G2 M1 P D3 N3 S'", "descending": "S' N3 D3 P M1 G2 R1 S" },
+      { "name": "Gayakapriya", "ascending": "S R1 G3 M1 P D1 N1 S'", "descending": "S' N1 D1 P M1 G3 R1 S" },
+      { "name": "Vakulabharanam", "ascending": "S R1 G3 M1 P D1 N2 S'", "descending": "S' N2 D1 P M1 G3 R1 S" },
+      { "name": "Mayamalavagowla", "ascending": "S R1 G3 M1 P D1 N3 S'", "descending": "S' N3 D1 P M1 G3 R1 S" },
+      { "name": "Chakravakam", "ascending": "S R1 G3 M1 P D2 N2 S'", "descending": "S' N2 D2 P M1 G3 R1 S" },
+      { "name": "Suryakantam", "ascending": "S R1 G3 M1 P D2 N3 S'", "descending": "S' N3 D2 P M1 G3 R1 S" },
+      { "name": "Hatakambari", "ascending": "S R1 G3 M1 P D3 N3 S'", "descending": "S' N3 D3 P M1 G3 R1 S" },
+      { "name": "Jankaradwani", "ascending": "S R2 G1 M1 P D1 N1 S'", "descending": "S' N1 D1 P M1 G1 R2 S" },
+      { "name": "Natabhairavi", "ascending": "S R2 G2 M1 P D1 N2 S'", "descending": "S' N2 D1 P M1 G2 R2 S" },
+      { "name": "Keeravani", "ascending": "S R2 G2 M1 P D1 N3 S'", "descending": "S' N3 D1 P M1 G2 R2 S" },
+      { "name": "Kharaharapriya", "ascending": "S R2 G2 M1 P D2 N2 S'", "descending": "S' N2 D2 P M1 G2 R2 S" },
+      { "name": "Gowrimanohari", "ascending": "S R2 G2 M1 P D2 N3 S'", "descending": "S' N3 D2 P M1 G2 R2 S" },
+      { "name": "Vachaspati", "ascending": "S R2 G2 M1 P D3 N3 S'", "descending": "S' N3 D3 P M1 G2 R2 S" },
+      { "name": "Charukesi", "ascending": "S R2 G3 M1 P D1 N2 S'", "descending": "S' N2 D1 P M1 G3 R2 S" },
+      { "name": "Sarasangi", "ascending": "S R2 G3 M1 P D1 N3 S'", "descending": "S' N3 D1 P M1 G3 R2 S" },
+      { "name": "Harikambhoji", "ascending": "S R2 G3 M1 P D2 N2 S'", "descending": "S' N2 D2 P M1 G3 R2 S" },
+      { "name": "Shankarabharanam", "ascending": "S R2 G3 M1 P D2 N3 S'", "descending": "S' N3 D2 P M1 G3 R2 S" }
+    ]
+}
+  

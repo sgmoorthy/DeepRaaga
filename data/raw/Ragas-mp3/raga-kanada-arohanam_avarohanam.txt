@@ -1,0 +1,2 @@
+Arohanam:   S R2 P G2 M1 D2 N2 S
+Avarohanam:   S N2 P M1 G2 M1 R2 S

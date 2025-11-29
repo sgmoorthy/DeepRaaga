@@ -1,0 +1,36 @@
+# Python virtual environment
+venv/
+env/
+.env/
+.venv/
+ENV/
+venv_new/
+.venv_new
+
+# Python byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE settings
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local development settings
+.env
+.env.local
+
+# Node.js dependencies
+node_modules/
+
+# System files
+.DS_Store
+Thumbs.db
+node_modules

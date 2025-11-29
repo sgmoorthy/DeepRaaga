@@ -1,10 +1,6 @@
-tensorflow-cpu
-magenta>=2.1.4
-numpy>=1.19.2
-pretty-midi>=0.2.9
-librosa>=0.7.2
-absl-py>=0.15.0
-protobuf>=3.19.0
-tensorboard
-midi2audio>=0.1.1
-fluidsynth>=0.2
+flask
+flask-cors
+torch
+numpy
+music21
+librosa
