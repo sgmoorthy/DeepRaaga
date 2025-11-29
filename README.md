@@ -1,6 +1,3 @@
-Here is the full README, including a clear MIT license section, ready to copy as a single file:
-
-```markdown
 # DeepRaaga 🎵  
 An AI Framework for Learning and Generating Carnatic Ragas
 
