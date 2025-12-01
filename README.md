@@ -3,6 +3,8 @@ An AI Framework for Learning and Generating Carnatic Ragas
 
 DeepRaaga is a research-oriented framework that explores how deep learning models can learn the melodic grammar of Indian Carnatic ragas and generate new phrases while respecting core raga constraints. The system combines TensorFlow/Magenta-based sequence models with a React-based UI for interactive raga-conditioned generation and playback. [web:94]
 
+
+
 ## 1. Research Motivation
 
 Carnatic music encodes melodic knowledge through ragas, which specify permitted swaras, characteristic phrases, and ornamentation patterns rather than fixed scores. Prior work in Music Information Retrieval (MIR) has focused mainly on Western genres, with comparatively fewer large-scale, open implementations for raga-centric modeling. [web:18][web:20]  
@@ -24,6 +26,8 @@ The project has two main subsystems:
 - **Frontend / Interaction layer (React + Vite)**  
   - `index.html` bootstraps a React SPA via `src/main.jsx`, mounting `App.jsx` at the `#root` div. [web:69][web:73]  
   - UI components under `src/components/` manage raga selection, model invocation (backend API hook), and audio playback of generated MIDI. [web:66]
+
+![DeepRaaga UI](images/deepraga_ui.png)
 
 Repository layout (simplified):
 
@@ -226,20 +230,3 @@ GitHub repository, https://github.com/sgmoorthy/DeepRaaga
 ## 12. License
 
 This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details. [web:74][web:96]
-```
-
-You can paste this entire block into `README.md`.
-
-[1](https://github.com/sgmoorthy/DeepRaaga)
-[2](https://gist.github.com/ckib16/8732561535ed766cd6b8)
-[3](https://www.makeareadme.com)
-[4](https://docs.github.com/articles/licensing-a-repository)
-[5](https://projectai.in/projects/e1cb9578-bfe0-40c0-8f25-316e757e36ec/tasks/6ee87feb-5367-486b-b625-1ba1727ad4d6)
-[6](https://www.reddit.com/r/learnprogramming/comments/18p8n3i/how_does_the_mit_license_notice_requirement_work/)
-[7](https://github.com/gaarangoa/deeparg)
-[8](https://www.hatica.io/blog/best-practices-for-github-readme/)
-[9](https://github.com/gaarangoa/deeparg2.0)
-[10](https://social-science-data-editors.github.io/template_README/template-README.html)
-[11](https://github.com/sgmoorthy)
-[12](https://github.com/GustavoVargasHakim/DeepGA)
-[13](https://www.youtube.com/watch?v=ZWwquOvw5Bk)
