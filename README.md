@@ -1,9 +1,13 @@
 # DeepRaaga 🎵  
-An AI Framework for Learning and Generating Carnatic Ragas
+**An AI Framework for Learning and Generating Carnatic Ragas**
 
-DeepRaaga is a research-oriented framework that explores how deep learning models can learn the melodic grammar of Indian Carnatic ragas and generate new phrases while respecting core raga constraints. The system combines TensorFlow/Magenta-based sequence models with a React-based UI for interactive raga-conditioned generation and playback. [web:94]
+DeepRaaga is an open-source framework dedicated to modeling the intricate structural beauty of Carnatic music using Artificial Intelligence. By harmonizing traditional heritage with modern machine learning paradigms, we strive to build a computational bridge to India's rich musical legacy.
 
+## 🌟 Vision: A National Knowledge Repository
 
+Inspired by the visionary dialogue between PM Narendra Modi and veteran composer Ramesh Vinayakam on creating a "National Knowledge Repository" for Indian music, DeepRaaga stands as a foundational step toward that goal.
+
+Carnatic music cannot be reduced to simple discrete notes; it is defined by the continuous, microtonal inflections (**Gamakas**), characteristic melodic pathways (**Sancharas**), and the strict grammatical constraints of ascending (**Arohana**) and descending (**Avarohana**) scales. Our mission is to encode this profound acoustic heritage into robust AI models, moving beyond Western-centric MIR (Music Information Retrieval) to create an open platform that respects, preserves, and innovates upon the grammar of Indian Classical Music.
 
 ## 1. Research Motivation
 
@@ -194,15 +198,22 @@ The accompanying research paper built on DeepRaaga typically includes: [web:7][w
 
 This repository is intended to be directly citable as the implementation artifact for that paper.
 
-## 9. Roadmap
+## 9. Enhanced Technical Roadmap
 
-Planned enhancements include: [web:15][web:17][web:42]  
+Building the ultimate AI framework for Carnatic music is an ongoing journey. Here are our high-priority technical goals:
 
-- Support for Janya ragas with explicit mapping to parent Melakarta.  
-- Tonic normalization and singer-independent modeling.  
-- Phrase-level and tala-aware segmentation.  
-- Web-based score visualization and phrase annotation tools.  
-- Time-of-day-aware raga suggestion and generation.
+### Phase 1: Robust Data & Parsing
+- [ ] **Melakarta Mapping System:** Explicitly map all 72 Melakarta (parent) ragas and build a relational database linking Janya (derivative) ragas to their parents.
+- [ ] **Advanced Gamaka Encoding:** Enhance NoteSequence parsers to extract continuous pitch bends from `.wav` files using SPICE/CREPE and map them to symbolic swara tokens.
+
+### Phase 2: Advancing the Architecture
+- [ ] **Transformer-based Sanchara Modeling:** Shift from basic LSTMs to causal Transformers to capture longer context in complex Alapanas.
+- [ ] **Tala-Awareness & Rhythmic Segmentation:** Introduce explicit tokenization for **Tala** (rhythmic cycles) to ensure generated phrases adhere to constraints like *Adi Tala* (8 beats).
+- [ ] **Tonic Invariance Modeling:** Train models that are completely independent of the singer's *Shruti* (root pitch), using relative interval embeddings.
+
+### Phase 3: The National Knowledge Repository
+- [ ] **Crowdsourced Annotation UI:** A web-based visualizer for musicians to easily tag, correct, and curate the generated phrases and raw data.
+- [ ] **Public API / Edge Models:** Lightweight ONNX models that can run directly in the browser via WebAssembly for real-time phrase accompaniment.
 
 ## 10. How to Reuse in Your Research
 
