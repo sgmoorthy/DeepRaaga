@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 
 console.log('Initializing React application')
@@ -11,7 +12,9 @@ if (rootElement) {
   console.log('Created React root')
   root.render(
     <React.StrictMode>
-      <App />
+      <BrowserRouter basename="/DeepRaaga/">
+        <App />
+      </BrowserRouter>
     </React.StrictMode>
   )
   console.log('Rendered App component')

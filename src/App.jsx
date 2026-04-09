@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import { Box, Container, CssBaseline, ThemeProvider, createTheme, Tabs, Tab } from '@mui/material'
+import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import RaagaGenerator from './components/RaagaGenerator'
 import Header from './components/Header'
 import CarnaticRagaInfo from './components/CarnaticRagaInfo'
@@ -60,11 +60,8 @@ const indianTheme = createTheme({
 })
 
 function App() {
-  const [currentTab, setCurrentTab] = useState(0);
-
-  const handleTabChange = (event, newValue) => {
-    setCurrentTab(newValue);
-  };
+  const location = useLocation();
+  const currentTab = location.pathname.startsWith('/blog') ? 1 : 0;
 
   return (
     <ThemeProvider theme={indianTheme}>
@@ -81,28 +78,28 @@ function App() {
           <Box sx={{ borderBottom: 1, borderColor: '#F1C40F', mb: 4 }}>
             <Tabs 
               value={currentTab} 
-              onChange={handleTabChange} 
               aria-label="deepraaga navigation tabs"
               textColor="primary"
               indicatorColor="primary"
             >
-              <Tab label="AI Demo" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }} />
-              <Tab label="Documentation & Blog" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }} />
+              <Tab label="AI Demo" component={Link} to="/" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }} />
+              <Tab label="Documentation & Blog" component={Link} to="/blog" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }} />
             </Tabs>
           </Box>
           
-          {currentTab === 0 && (
-            <Box>
-              <RaagaGenerator />
-              <CarnaticRagaInfo />
-            </Box>
-          )}
-          
-          {currentTab === 1 && (
-            <Box>
-              <BlogViewer />
-            </Box>
-          )}
+          <Routes>
+            <Route path="/" element={
+              <Box>
+                <RaagaGenerator />
+                <CarnaticRagaInfo />
+              </Box>
+            } />
+            <Route path="/blog/*" element={
+              <Box>
+                <BlogViewer />
+              </Box>
+            } />
+          </Routes>
         </Container>
       </Box>
     </ThemeProvider>
