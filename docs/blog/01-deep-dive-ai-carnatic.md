@@ -7,7 +7,7 @@ Harmonizing traditional Indian Classical Music with Artificial Intelligence requ
 
 In this post, we dive deep into the technical architecture of DeepRaaga, dissecting the 'how' behind our models.
 
-**[Image of LSTM Architecture / DeepRaaga Pipeline]**
+![DeepRaaga LSTM Neural Architecture](/DeepRaaga/blog-images/carnatic_lstm_flow.png)
 
 ## 1. The Challenge of Representation: Sequences and Gamakas
 
@@ -32,8 +32,6 @@ The heart of DeepRaaga's generative capability lies in our **Raga-Conditioned Lo
 3. **Sequential Learning:** As the LSTM processes the sequence, it learns the probability distribution of the next swara given the historical context and the raga condition.
 
 When an LSTM is properly conditioned on a raga, it learns to avoid universally forbidden notes (*Apaswaras*) and probabilistically favors the **Sancharas** unique to that raga.
-
-**[Image of Raga-Conditioned LSTM Flow]**
 
 ## What's Next?
 Deep learning models offer incredible promise for modeling the unstructured beauty of Carnatic music. But the journey has just begun. We're consistently updating our NoteSequence parsers and experimenting with Transformer architectures to improve long-range dependencies. Let's cultivate a platform that serves as a National Knowledge Repository of Music.
