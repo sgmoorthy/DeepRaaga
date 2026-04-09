@@ -119,6 +119,36 @@ Vite will automatically hot-reload your new post into the responsive grid feed!
 
 ---
 
+## 💻 The "Music-as-Code" Philosophy
+
+DeepRaaga pioneeringly treats **Indian Classical Music as Code**. In this paradigm:
+- **Ragas are Functional Constraints:** They are not just melodies but logical schemas (Arohana/Avarohana) that act as validator functions for generative outputs.
+- **Compositions are Verisonable Artifacts:** Every *Kriti* or *Sanchara* is treated as a structured data artifact (MIDI/MusicXML) that can be linted for grammar, version-controlled, and audited.
+- **Pedagogy as CI/CD:** Learning is viewed as an iterative refinement process, where model weights are updated based on structured feedback from musicians, much like code reviews.
+
+---
+
+## 📊 Dataset Standardization: The "DeepRaaga-Dataset"
+
+To solve the data bottleneck in Carnatic AI and allow for reproducible benchmarking, we have standardized the **DeepRaaga-Dataset** structure. This repository includes a high-fidelity folder hierarchy for all **72 Melakarta Ragas**, treating each musical scale as a unique "Namespace."
+
+### Initializing the Music-as-Code Registry
+We provide a utility script to instantly generate the standardized directory tree:
+```bash
+python data/melakarta_init.py
+```
+This creates the following structure under `data/DeepRaaga-Dataset/`:
+- `Melakarta/`
+  - `01_Kanakangi/`, `02_Ratnangi/`, ... `72_Rasikapriya/`
+    - `midi/`: Standardized MIDI performance data (Melodic Artifacts).
+    - `musicxml/`: Structured sheet music (Symbolic Code).
+    - `annotations/`: Phrase-level metadata and *Gamaka* labels (Documentation).
+
+### Contributing to the Registry
+Researchers and musicians can contribute high-quality musical code by placing it in the correct Raga namespace and submitting a Pull Request. This allows for a collective, open-source benchmark for Carnatic MIR.
+
+---
+
 ## 🧠 ML Data Pipeline & Models
 
 ### Preprocessing
