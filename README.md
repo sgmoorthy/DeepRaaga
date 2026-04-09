@@ -1,7 +1,23 @@
-# DeepRaaga 🎵  
+<div align="center">
+  
+# 🎵 DeepRaaga 
+
 **An AI Framework for Learning and Generating Carnatic Ragas**
 
-DeepRaaga is an open-source framework dedicated to modeling the intricate structural beauty of Carnatic music using Artificial Intelligence. By harmonizing traditional heritage with modern machine learning paradigms, we strive to build a computational bridge to India's rich musical legacy.
+![UI Screenshot](images/deepraga_ui.png)
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![React](https://img.shields.io/badge/React-18.x-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
+[![CI/CD](https://github.com/sgmoorthy/DeepRaaga/actions/workflows/deploy.yml/badge.svg)](https://github.com/sgmoorthy/DeepRaaga/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+*DeepRaaga is an open-source platform dedicated to modeling the intricate structural beauty of Carnatic music using Artificial Intelligence. By harmonizing traditional heritage with modern machine learning paradigms, we strive to build a computational bridge to India's rich musical legacy.*
+
+</div>
+
+---
 
 ## 🌟 Vision: A National Knowledge Repository
 
@@ -9,235 +25,152 @@ Inspired by the visionary dialogue between PM Narendra Modi and veteran composer
 
 Carnatic music cannot be reduced to simple discrete notes; it is defined by the continuous, microtonal inflections (**Gamakas**), characteristic melodic pathways (**Sancharas**), and the strict grammatical constraints of ascending (**Arohana**) and descending (**Avarohana**) scales. Our mission is to encode this profound acoustic heritage into robust AI models, moving beyond Western-centric MIR (Music Information Retrieval) to create an open platform that respects, preserves, and innovates upon the grammar of Indian Classical Music.
 
-## 1. Research Motivation
+---
 
-Carnatic music encodes melodic knowledge through ragas, which specify permitted swaras, characteristic phrases, and ornamentation patterns rather than fixed scores. Prior work in Music Information Retrieval (MIR) has focused mainly on Western genres, with comparatively fewer large-scale, open implementations for raga-centric modeling. [web:18][web:20]  
+## 🏗️ System Architecture
 
-DeepRaaga aims to provide:  
-- A reproducible pipeline from raw Carnatic MIDI/MusicXML to model-ready sequences.  
-- Baseline sequence models for raga classification and raga-conditioned generation.  
-- An extensible codebase that can support future work on swara-level modeling, tonic invariance, and improvisation analysis. [web:7][web:19]
+The project is decoupled into two primary subsystems to ensure scalability and rapid inference:
 
-## 2. System Overview
+### 1. Neural Backend (Python)
+- **Environment Requirement:** Python 3.10+
+- **Data Ingestion:** Conversion of Carnatic compositions (MIDI, MusicXML) into `NoteSequence` and `TFRecord` formats holding deep arrays of pitch bends and timing.
+- **Deep Learning Core:** Training of sequence models (RNN/LSTM or Transformer-style) heavily conditioned on specific Raga constraints.
+- **Microservices:** A FastAPI/Flask REST layer to expose the `.generate()` methods via endpoints.
 
-The project has two main subsystems:
+### 2. Interaction Layer (React + Vite)
+- **Technology Stack:** React 18, Vite 5, Material UI 3
+- **Usage:** A modern, glassmorphic Single Page Application (SPA) offering visual generation tools, Raga playback via WebMIDI/Tone.js, and an integrated technical blog.
 
-- **Backend / Research pipeline (Python, TensorFlow, Magenta)**  
-  - Data ingestion and conversion of Carnatic compositions (MIDI, MusicXML) into NoteSequence and TFRecord formats.  
-  - Training of sequence models (RNN/LSTM or Transformer-style) on raga-labeled phrases.  
-  - Scripts for evaluation (classification accuracy, phrase-level metrics) and sequence generation. [web:62][web:65]  
+---
 
-- **Frontend / Interaction layer (React + Vite)**  
-  - `index.html` bootstraps a React SPA via `src/main.jsx`, mounting `App.jsx` at the `#root` div. [web:69][web:73]  
-  - UI components under `src/components/` manage raga selection, model invocation (backend API hook), and audio playback of generated MIDI. [web:66]
+## 🚀 Installation & Local Development
 
-![DeepRaaga UI](images/deepraga_ui.png)
+### 🐍 Backend setup (Python 3.10+)
 
-Repository layout (simplified):
-
-```
-DeepRaaga/
-├── base/          # Base classes, shared utilities
-├── data/          # raw/ and processed/ Carnatic music data
-├── docs/          # Concept notes and documentation
-├── images/        # Diagrams, figures
-├── model/         # Model definitions and training scripts
-├── results/       # Generated outputs and logs
-├── src/           # React front-end (App.jsx, main.jsx, components/)
-├── test/          # Test scripts
-├── index.html     # Front-end entry (Vite/React)
-├── requirements.txt
-└── package.json
-```
-
-## 3. Installation
-
-### 3.1. Backend (Python)
-
-```
+```bash
 git clone https://github.com/sgmoorthy/DeepRaaga.git
 cd DeepRaaga
 
+# Initialize virtual environment
 python -m venv .venv
-source .venv/bin/activate   # Windows: .\.venv\Scripts\activate
 
+# Activate environment
+source .venv/bin/activate       # Unix/macOS
+.\.venv\Scripts\activate        # Windows
+
+# Install ML Dependencies
 pip install -r requirements.txt
 ```
+*(Dependencies include `TensorFlow`, `Magenta`, `librosa`, `pretty-midi`, and `FastAPI`)*
 
-`requirements.txt` typically includes TensorFlow, Magenta, librosa, pretty-midi, midi2audio, and related audio/MIR tooling. [web:59][web:68]
+### ⚛️ Frontend Setup (React)
 
-### 3.2. Frontend (React)
+```bash
+# Install exact dependencies
+npm install 
 
-```
-npm install        # or: pnpm install / yarn install
-npm run dev        # local development
-npm run build      # production build
-```
+# Spin up high-speed local dev server
+npm run dev
 
-`index.html` loads `src/main.jsx` as a module entry point and mounts the React app at `#root`. [web:69][web:73]
-
-```
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DeepRaaga - AI Carnatic Music Generator</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
-    />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+# Compile for production
+npm run build
 ```
 
-## 4. Data Pipeline
+---
 
-### 4.1. Source Data
+## ⚙️ CI/CD & Automated Deployment
 
-- Raga-labeled Carnatic compositions as MIDI or MusicXML files, organized by raga under `data/raw/`.  
-- A practical starting point is to cover a subset of Melakarta ragas (parent ragas) and later extend to Janya ragas. [web:16][web:18]
+DeepRaaga utilizes robust **GitHub Actions** pipelines to automate testing and deployments natively.
 
-### 4.2. Preprocessing
+**The Workflow (`.github/workflows/deploy.yml`):**
+1. **Trigger:** Activated automatically upon merging code into the `master` branch.
+2. **Environment:** Spins up an `ubuntu-latest` container running Node.js.
+3. **Build:** Installs dependencies cleanly utilizing `npm ci` and compiles the React application utilizing `npx vite build --base=/DeepRaaga/`.
+4. **Deploy:** Artifacts are packaged and pushed directly to the `gh-pages` branch, instantly updating the lived production URL.
 
-Run:
+*(Note: Contributors do not need to manually push a build. Simply open a PR against `master` and the CI/CD pipeline handles it!)*
 
+---
+
+## 📖 Documentation & The Keyword Blog
+
+DeepRaaga ships with a fully integrated, beautifully stylized publishing platform structurally inspired by Google's *"The Keyword"* blog. 
+
+The frontend incorporates a dynamically mapped Client-Side Router that leverages raw `.md` (Markdown) data without requiring a dedicated backend database. 
+
+### Writing a New Blog Post
+1. **Create your Markdown file:** Add your technical writing to `docs/blog/your-new-post.md`.
+2. **Handle Media Natively:** Use standard Markdown image syntax (`![alt](/DeepRaaga/blog-images/img.png)`). For YouTube videos, standard hyperlink anchor tags (`[Video](https://www.youtube.com/watch?v=VIDEO_ID)`) are dynamically intercepted by our custom React Markdown engine and converted into secure, auto-responsive `<iframe>` embeds.
+3. **Register your Post:** Open `src/components/BlogViewer.jsx` and add your metadata to the `blogs` manifest array:
+```javascript
+import newPost from '../../docs/blog/your-new-post.md?raw';
+
+{
+  slug: 'your-new-post',
+  title: 'Your Premium Title Here',
+  category: 'Engineering',
+  date: 'April 15, 2026',
+  image: '/DeepRaaga/blog-images/feature.png', 
+  description: 'A brief description that appears on the feed card.',
+  content: newPost
+}
 ```
+Vite will automatically hot-reload your new post into the responsive grid feed!
+
+---
+
+## 🧠 ML Data Pipeline & Models
+
+### Preprocessing
+Data must be grouped by raga under `data/raw/` in MIDI format. To quantize and prepare the data for TensorFlow:
+```bash
 python data/convert_data.py
 ```
 
-This stage typically performs:  
-- Conversion of MIDI/MusicXML into Magenta `NoteSequence` protos. [web:62][web:65]  
-- Quantization to a fixed temporal grid while preserving raga-relevant pitch information.  
-- Creation of TFRecord datasets with (sequence, raga_id) pairs.  
-- Optional data augmentation (transposition within raga-compatible ranges, time-stretch within musically valid bounds). [web:25]
-
-## 5. Models
-
-### 5.1. Baseline Sequence Model
-
-The initial baseline can use a recurrent neural network for modeling sequences of notes or pitch classes: [web:22][web:27]  
-
-- **Input**: Tokenized swara/pitch sequence plus raga conditioning.  
-- **Architecture**: Embedding → 2–3 LSTM layers → dense output over note vocabulary.  
-- **Loss**: Cross-entropy over next-token prediction; optionally auxiliary raga classification loss.  
-- **Training script** (example):
-
-```
-python model/basic_model.py
+### Raga-Conditioned Autoregressive Generation
+Generation is performed by autoregressively sampling from the trained sequence model while conditioning on a specific Raga Latent Vector:
+```bash
+python generate.py --raga="Bhairavi" --duration=300 --temperature=0.8
 ```
 
-### 5.2. Raga Classification
+---
 
-For raga recognition from phrases, DeepRaaga can employ: [web:7][web:11][web:44]  
+## 🗺️ Project Roadmap
 
-- A CNN or CNN+LSTM over pitch-class distributions and contour features.  
-- Evaluation metrics: accuracy, macro-F1 over ragas, confusion matrices to inspect confusions between musically close ragas.
+Building the ultimate AI framework for Carnatic music is an ongoing journey:
 
-### 5.3. Raga-conditioned Generation
+- [ ] **Phase 1: Melakarta Integration:** Map all 72 parent scales explicitly.
+- [ ] **Phase 2: Rhythmic Tala-Awareness:** Introduce chronological constraints so models respect the 8-beat structure of cycles like *Adi Tala*.
+- [ ] **Phase 3: Transformer Infrastructure:** Upgrade baseline `RagaLSTM` nodes to causal Transformers (e.g., MusicLM variants) for improved *Alapana* continuity.
+- [ ] **Phase 4: Open API Sandbox:** Offer a real-time web REST API for digital musicians.
 
-Generation is performed by autoregressively sampling from the trained sequence model while conditioning on: [web:14][web:21]  
+---
 
-- Selected raga ID (conditioning vector or embedding).  
-- Optional constraints such as allowed pitch sets and typical phrase lengths.
+## 🤝 Contributing
 
-An example generation script interface:
+We rely on **Musicologists**, **ML Engineers**, and **React Developers** to build this repository. See our detailed breakdown of roles in [How to Contribute to DeepRaaga](https://github.com/sgmoorthy/DeepRaaga/tree/master/docs/blog/06-how-to-contribute.md). 
 
-```
-python generate.py --raga="Bhairavi" --duration=300
-```
+1. **Fork** the repo!
+2. Create your feature branch: `git checkout -b feature/carnatic-magic`
+3. Push to the branch: `git push origin feature/carnatic-magic`
+4. Submit a **Pull Request**.
 
-to generate approximately 5 minutes of raga-specific melodic material.
+---
 
-## 6. Frontend Usage
+## 📜 Academic Citation
 
-Once the backend model server is running (for example, via a REST API wrapping the Python model), the React app provides: [web:66][web:73]  
-
-- A dropdown or list of supported ragas.  
-- Controls for generation parameters (duration, temperature, starting phrase).  
-- Playback of generated MIDI via WebAudio or a WebMIDI-compatible synth.
-
-Typical dev workflow:
-
-```
-# In one terminal: start backend model server (example)
-python model/serve_model.py  # e.g., FastAPI/Flask app
-
-# In another terminal: start React dev server
-npm run dev
+If you use DeepRaaga in academic work, please cite the associated paper:
+```bibtex
+@inproceedings{swaminathan2025deepraaga,
+  author = {Gurumurthy Swaminathan},
+  title = {DeepRaaga: Learning and Generating Carnatic Ragas with Deep Neural Sequence Models},
+  year = {2026},
+  booktitle = {Proceedings of the Audio Engineering Society}
+}
 ```
 
-## 7. Experimental Protocol
-
-To support research-grade reporting:
-
-1. **Train/validation/test split**  
-   - Split compositions per raga so that test ragas contain unseen phrases.  
-   - Ensure no phrase-level leakage between splits. [web:18][web:19]
-
-2. **Metrics**  
-   - Raga classification: accuracy, macro-F1, confusion matrix.  
-   - Generation: human evaluation from Carnatic musicians (raga adherence, musicality), objective pitch-set compliance. [web:7][web:21]
-
-3. **Baselines**  
-   - N-gram or Markov-based pitch sequence models.  
-   - Unconditioned LSTM trained across all ragas. [web:18][web:29]
-
-## 8. Research Paper Alignment
-
-The accompanying research paper built on DeepRaaga typically includes: [web:7][web:11][web:44]  
-
-- **Problem definition**: learning and generating Carnatic ragas.  
-- **Methodology**: detailed data pipeline, model architectures, and training setup.  
-- **Results**: quantitative classification performance and qualitative generation study.  
-- **Ablations**: impact of raga conditioning, tonic normalization, and phrase segmentation.  
-
-This repository is intended to be directly citable as the implementation artifact for that paper.
-
-## 9. Enhanced Technical Roadmap
-
-Building the ultimate AI framework for Carnatic music is an ongoing journey. Here are our high-priority technical goals:
-
-### Phase 1: Robust Data & Parsing
-- [ ] **Melakarta Mapping System:** Explicitly map all 72 Melakarta (parent) ragas and build a relational database linking Janya (derivative) ragas to their parents.
-- [ ] **Advanced Gamaka Encoding:** Enhance NoteSequence parsers to extract continuous pitch bends from `.wav` files using SPICE/CREPE and map them to symbolic swara tokens.
-
-### Phase 2: Advancing the Architecture
-- [ ] **Transformer-based Sanchara Modeling:** Shift from basic LSTMs to causal Transformers to capture longer context in complex Alapanas.
-- [ ] **Tala-Awareness & Rhythmic Segmentation:** Introduce explicit tokenization for **Tala** (rhythmic cycles) to ensure generated phrases adhere to constraints like *Adi Tala* (8 beats).
-- [ ] **Tonic Invariance Modeling:** Train models that are completely independent of the singer's *Shruti* (root pitch), using relative interval embeddings.
-
-### Phase 3: The National Knowledge Repository
-- [ ] **Crowdsourced Annotation UI:** A web-based visualizer for musicians to easily tag, correct, and curate the generated phrases and raw data.
-- [ ] **Public API / Edge Models:** Lightweight ONNX models that can run directly in the browser via WebAssembly for real-time phrase accompaniment.
-
-## 10. How to Reuse in Your Research
-
-- Fork this repo and add your own Carnatic or Hindustani dataset.  
-- Swap in alternative architectures (Transformers, conformers, diffusion-based symbolic generators). [web:22][web:29]  
-- Use the provided pipeline as a template for MIR studies on raga recognition, recommendation, or improvisation analysis. [web:18][web:40]
-
-## 11. Citation
-
-If you use DeepRaaga in academic work, please cite the associated paper (placeholder):
-
-```
-Gurumurthy Swaminathan, (2025). DeepRaaga: Learning and Generating Carnatic Ragas with Deep Neural Sequence Models.
-Proceedings of the [Conference Name], pp. XX–YY.
-```
-
-Also acknowledge this repository:
-
-```
-DeepRaaga: an effort to teach Indian carnatic music to AI.
-GitHub repository, https://github.com/sgmoorthy/DeepRaaga
-```
-[web:38]
-
-## 12. License
-
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details. [web:74][web:96]
+---
+<div align="center">
+  <strong>DeepRaaga</strong> is an open-source platform created and managed by <strong>Gurumurthy Swaminathan</strong>.<br><br>
+  Released under the <a href="LICENSE">MIT License</a>.
+</div>
