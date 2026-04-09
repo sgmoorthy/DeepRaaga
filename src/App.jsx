@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { Box, Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material'
+import { Box, Container, CssBaseline, ThemeProvider, createTheme, Tabs, Tab } from '@mui/material'
 import RaagaGenerator from './components/RaagaGenerator'
 import Header from './components/Header'
 import CarnaticRagaInfo from './components/CarnaticRagaInfo'
+import BlogViewer from './components/BlogViewer'
 
 const indianTheme = createTheme({
   palette: {
@@ -59,7 +60,12 @@ const indianTheme = createTheme({
 })
 
 function App() {
-  console.log('App component rendering');
+  const [currentTab, setCurrentTab] = useState(0);
+
+  const handleTabChange = (event, newValue) => {
+    setCurrentTab(newValue);
+  };
+
   return (
     <ThemeProvider theme={indianTheme}>
       <CssBaseline />
@@ -72,8 +78,31 @@ function App() {
       >
         <Header />
         <Container maxWidth="lg" sx={{ py: 4 }}>
-          <RaagaGenerator />
-          <CarnaticRagaInfo />
+          <Box sx={{ borderBottom: 1, borderColor: '#F1C40F', mb: 4 }}>
+            <Tabs 
+              value={currentTab} 
+              onChange={handleTabChange} 
+              aria-label="deepraaga navigation tabs"
+              textColor="primary"
+              indicatorColor="primary"
+            >
+              <Tab label="AI Demo" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }} />
+              <Tab label="Documentation & Blog" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }} />
+            </Tabs>
+          </Box>
+          
+          {currentTab === 0 && (
+            <Box>
+              <RaagaGenerator />
+              <CarnaticRagaInfo />
+            </Box>
+          )}
+          
+          {currentTab === 1 && (
+            <Box>
+              <BlogViewer />
+            </Box>
+          )}
         </Container>
       </Box>
     </ThemeProvider>
