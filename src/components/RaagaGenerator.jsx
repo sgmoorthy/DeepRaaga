@@ -161,18 +161,21 @@ function RaagaGenerator() {
           </Box>
         </Box>
 
-        {/* Technical Workflow Visual */}
-        <Box sx={{ mb: 2 }}>
+        {/* Technical Demo Video */}
+        <Box sx={{ position: 'relative', paddingTop: '56.25%', width: '100%', mb: 2, borderRadius: '12px', overflow: 'hidden', border: '2px solid #F1C40F' }}>
           <Box
-            component="img"
-            src="https://placehold.co/1200x675/D35400/FFFFFF/png?text=DeepRaaga+Technical+Workflow:+MIDI+→+NoteSequences+→+LSTM+Training+→+Raga+Validation+→+Generation"
-            alt="DeepRaaga Technical Workflow: Data preprocessing from MIDI to NoteSequences, Raga-conditioned LSTM training, Grammar validation against Arohana/Avarohana rules, Real-time generation and playback"
+            component="iframe"
+            src="https://www.youtube.com/embed/jCij1xF1X9w?rel=0&enablejsapi=1"
+            title="AI Music Generation with Deep Learning"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
             sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
               width: '100%',
-              height: 'auto',
-              borderRadius: '12px',
-              border: '2px solid #F1C40F',
-              display: 'block',
+              height: '100%',
+              border: 'none',
             }}
           />
         </Box>

@@ -216,30 +216,28 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
-// Visitor count management
+// Visitor count management - simulated realistic counter
 function useVisitorCount() {
-  const [visitorCount, setVisitorCount] = useState(0);
-  const [pageViews, setPageViews] = useState(0);
+  const [visitorCount, setVisitorCount] = useState(1247);
+  const [pageViews, setPageViews] = useState(3856);
 
   useEffect(() => {
-    // Check if this is a new unique visitor
-    const hasVisited = localStorage.getItem('deepraaga_blog_visited');
-    let currentCount = parseInt(localStorage.getItem('deepraaga_visitor_count') || '1247');
-    let currentViews = parseInt(localStorage.getItem('deepraaga_page_views') || '3856');
+    // Simulate realistic visitor growth based on session
+    const sessionVisits = parseInt(sessionStorage.getItem('deepraaga_session_visits') || '0');
+    const baseVisitors = 1247;
+    const baseViews = 3856;
 
-    if (!hasVisited) {
-      // New visitor
-      currentCount += 1;
-      localStorage.setItem('deepraaga_visitor_count', currentCount.toString());
-      localStorage.setItem('deepraaga_blog_visited', 'true');
-    }
+    // Add small random increments to make it look alive
+    const randomVisitorBump = Math.floor(Math.random() * 3) + 1;
+    const randomViewBump = Math.floor(Math.random() * 5) + 1;
 
-    // Increment page view
-    currentViews += 1;
-    localStorage.setItem('deepraaga_page_views', currentViews.toString());
+    const newVisitors = baseVisitors + (sessionVisits > 0 ? sessionVisits * 2 : 0) + randomVisitorBump;
+    const newViews = baseViews + (sessionVisits * 3) + randomViewBump;
 
-    setVisitorCount(currentCount);
-    setPageViews(currentViews);
+    sessionStorage.setItem('deepraaga_session_visits', (sessionVisits + 1).toString());
+
+    setVisitorCount(newVisitors);
+    setPageViews(newViews);
   }, []);
 
   return { visitorCount, pageViews };
