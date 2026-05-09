@@ -151,7 +151,7 @@ function RaagaGenerator() {
             <SmartToyIcon /> How DeepRaaga Works
           </Typography>
           <Typography variant="body1" sx={{ color: '#5D4037', mb: 2 }}>
-            Watch how our AI understands and generates authentic Carnatic ragas using deep neural networks trained on traditional compositions.
+            DeepRaaga uses advanced AI to understand and generate authentic Carnatic ragas through a sophisticated pipeline of data processing, neural network training, and grammar validation.
           </Typography>
           <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 2 }}>
             <Chip icon={<MusicNoteIcon />} label="72 Melakarta Ragas" color="primary" size="small" />
@@ -161,30 +161,45 @@ function RaagaGenerator() {
           </Box>
         </Box>
 
-        {/* Embedded Technical Video */}
-        <Box sx={{ position: 'relative', paddingTop: '56.25%', width: '100%', mb: 2 }}>
+        {/* Technical Workflow Visual */}
+        <Box sx={{ mb: 2 }}>
           <Box
-            component="iframe"
-            src="https://www.youtube.com/embed/O8hMDRZVhWM?rel=0"
-            title="DeepRaaga Technical Demo - AI Carnatic Music Generation"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
+            component="img"
+            src="https://placehold.co/1200x675/D35400/FFFFFF/png?text=DeepRaaga+Technical+Workflow:+MIDI+→+NoteSequences+→+LSTM+Training+→+Raga+Validation+→+Generation"
+            alt="DeepRaaga Technical Workflow: Data preprocessing from MIDI to NoteSequences, Raga-conditioned LSTM training, Grammar validation against Arohana/Avarohana rules, Real-time generation and playback"
             sx={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
               width: '100%',
-              height: '100%',
+              height: 'auto',
               borderRadius: '12px',
               border: '2px solid #F1C40F',
+              display: 'block',
             }}
           />
         </Box>
 
-        <Typography variant="body2" sx={{ color: '#8D6E63', fontStyle: 'italic', textAlign: 'center' }}>
-          The video demonstrates: 1) Data preprocessing from MIDI to NoteSequences, 2) Raga-conditioned LSTM training,
-          3) Grammar validation against Arohana/Avarohana rules, 4) Real-time generation and playback.
-        </Typography>
+        {/* Workflow Steps */}
+        <Box sx={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: 2, mt: 2 }}>
+          <Box sx={{ textAlign: 'center', maxWidth: 200 }}>
+            <Typography variant="h6" sx={{ color: '#D35400', fontWeight: 'bold' }}>1</Typography>
+            <Typography variant="body2" sx={{ color: '#5D4037' }}>MIDI Preprocessing</Typography>
+          </Box>
+          <Box sx={{ textAlign: 'center', maxWidth: 200 }}>
+            <Typography variant="h6" sx={{ color: '#D35400', fontWeight: 'bold' }}>2</Typography>
+            <Typography variant="body2" sx={{ color: '#5D4037' }}>NoteSequence Conversion</Typography>
+          </Box>
+          <Box sx={{ textAlign: 'center', maxWidth: 200 }}>
+            <Typography variant="h6" sx={{ color: '#D35400', fontWeight: 'bold' }}>3</Typography>
+            <Typography variant="body2" sx={{ color: '#5D4037' }}>LSTM+Attention Training</Typography>
+          </Box>
+          <Box sx={{ textAlign: 'center', maxWidth: 200 }}>
+            <Typography variant="h6" sx={{ color: '#D35400', fontWeight: 'bold' }}>4</Typography>
+            <Typography variant="body2" sx={{ color: '#5D4037' }}>Raga Grammar Validation</Typography>
+          </Box>
+          <Box sx={{ textAlign: 'center', maxWidth: 200 }}>
+            <Typography variant="h6" sx={{ color: '#D35400', fontWeight: 'bold' }}>5</Typography>
+            <Typography variant="body2" sx={{ color: '#5D4037' }}>Real-time Generation</Typography>
+          </Box>
+        </Box>
       </Paper>
 
       <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
