@@ -23,6 +23,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import SmartToyIcon from '@mui/icons-material/SmartToy'
 import MusicNoteIcon from '@mui/icons-material/MusicNote'
 import Piano from './Piano'
+import AnimatedWorkflow from './AnimatedWorkflow'
 
 const RAGAS = [
   // Melakarta Ragas
@@ -161,104 +162,8 @@ function RaagaGenerator() {
           </Box>
         </Box>
 
-        {/* Technical Demo Video - Click to Play on YouTube */}
-        <Box
-          component="a"
-          href="https://www.youtube.com/watch?v=O8hMDRZVhWM"
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{
-            display: 'block',
-            position: 'relative',
-            width: '100%',
-            paddingTop: '56.25%',
-            mb: 2,
-            borderRadius: '12px',
-            overflow: 'hidden',
-            border: '2px solid #F1C40F',
-            textDecoration: 'none',
-            cursor: 'pointer',
-            '&:hover': {
-              opacity: 0.9,
-              transform: 'scale(1.01)',
-              transition: 'all 0.2s ease',
-            }
-          }}
-        >
-          <Box
-            component="img"
-            src="https://img.youtube.com/vi/O8hMDRZVhWM/maxresdefault.jpg"
-            alt="DeepRaaga Technical Demo - Click to Watch on YouTube"
-            sx={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-            }}
-          />
-          {/* Play button overlay */}
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: 80,
-              height: 80,
-              bgcolor: 'rgba(211, 84, 0, 0.9)',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-            }}
-          >
-            <PlayArrowIcon sx={{ color: 'white', fontSize: 40, ml: 0.5 }} />
-          </Box>
-          {/* Label */}
-          <Box
-            sx={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              bgcolor: 'rgba(0,0,0,0.7)',
-              color: 'white',
-              p: 1.5,
-              textAlign: 'center',
-            }}
-          >
-            <Typography variant="body2" sx={{ fontWeight: 500 }}>
-              ▶ Watch Technical Demo on YouTube
-            </Typography>
-          </Box>
-        </Box>
-
-        {/* Workflow Steps */}
-        <Box sx={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: 2, mt: 2 }}>
-          <Box sx={{ textAlign: 'center', maxWidth: 200 }}>
-            <Typography variant="h6" sx={{ color: '#D35400', fontWeight: 'bold' }}>1</Typography>
-            <Typography variant="body2" sx={{ color: '#5D4037' }}>MIDI Preprocessing</Typography>
-          </Box>
-          <Box sx={{ textAlign: 'center', maxWidth: 200 }}>
-            <Typography variant="h6" sx={{ color: '#D35400', fontWeight: 'bold' }}>2</Typography>
-            <Typography variant="body2" sx={{ color: '#5D4037' }}>NoteSequence Conversion</Typography>
-          </Box>
-          <Box sx={{ textAlign: 'center', maxWidth: 200 }}>
-            <Typography variant="h6" sx={{ color: '#D35400', fontWeight: 'bold' }}>3</Typography>
-            <Typography variant="body2" sx={{ color: '#5D4037' }}>LSTM+Attention Training</Typography>
-          </Box>
-          <Box sx={{ textAlign: 'center', maxWidth: 200 }}>
-            <Typography variant="h6" sx={{ color: '#D35400', fontWeight: 'bold' }}>4</Typography>
-            <Typography variant="body2" sx={{ color: '#5D4037' }}>Raga Grammar Validation</Typography>
-          </Box>
-          <Box sx={{ textAlign: 'center', maxWidth: 200 }}>
-            <Typography variant="h6" sx={{ color: '#D35400', fontWeight: 'bold' }}>5</Typography>
-            <Typography variant="body2" sx={{ color: '#5D4037' }}>Real-time Generation</Typography>
-          </Box>
-        </Box>
+        {/* Animated AI Workflow Visualization */}
+        <AnimatedWorkflow />
       </Paper>
 
       <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
