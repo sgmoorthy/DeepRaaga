@@ -12,14 +12,17 @@ import {
   Slider,
   Typography,
   Alert,
-  CircularProgress
+  CircularProgress,
+  Paper,
+  Chip
 } from '@mui/material'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import StopIcon from '@mui/icons-material/Stop'
 import SaveIcon from '@mui/icons-material/Save'
 import DeleteIcon from '@mui/icons-material/Delete'
+import SmartToyIcon from '@mui/icons-material/SmartToy'
+import MusicNoteIcon from '@mui/icons-material/MusicNote'
 import Piano from './Piano'
-import { Paper } from '@mui/material'
 
 const RAGAS = [
   // Melakarta Ragas
@@ -141,6 +144,49 @@ function RaagaGenerator() {
 
   return (
     <Box sx={{ width: '100%' }}>
+      {/* Technical Demo Video Section */}
+      <Paper elevation={3} sx={{ p: 3, mb: 3, background: 'linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%)' }}>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="h5" sx={{ color: '#D35400', fontWeight: 600, mb: 1, display: 'flex', alignItems: 'center', gap: 1 }}>
+            <SmartToyIcon /> How DeepRaaga Works
+          </Typography>
+          <Typography variant="body1" sx={{ color: '#5D4037', mb: 2 }}>
+            Watch how our AI understands and generates authentic Carnatic ragas using deep neural networks trained on traditional compositions.
+          </Typography>
+          <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 2 }}>
+            <Chip icon={<MusicNoteIcon />} label="72 Melakarta Ragas" color="primary" size="small" />
+            <Chip icon={<SmartToyIcon />} label="LSTM + Attention" color="secondary" size="small" />
+            <Chip label="Raga Grammar Validation" color="success" size="small" />
+            <Chip label="Real-time Generation" color="info" size="small" />
+          </Box>
+        </Box>
+
+        {/* Embedded Technical Video */}
+        <Box sx={{ position: 'relative', paddingTop: '56.25%', width: '100%', mb: 2 }}>
+          <Box
+            component="iframe"
+            src="https://www.youtube.com/embed/O8hMDRZVhWM?rel=0"
+            title="DeepRaaga Technical Demo - AI Carnatic Music Generation"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              borderRadius: '12px',
+              border: '2px solid #F1C40F',
+            }}
+          />
+        </Box>
+
+        <Typography variant="body2" sx={{ color: '#8D6E63', fontStyle: 'italic', textAlign: 'center' }}>
+          The video demonstrates: 1) Data preprocessing from MIDI to NoteSequences, 2) Raga-conditioned LSTM training,
+          3) Grammar validation against Arohana/Avarohana rules, 4) Real-time generation and playback.
+        </Typography>
+      </Paper>
+
       <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={4}>

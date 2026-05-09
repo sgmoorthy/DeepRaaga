@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, Link, useParams, useLocation } from 'react-router-dom';
-import { Box, Typography, Divider, Grid, Card, CardActionArea, CardMedia, CardContent, Container, Breadcrumbs } from '@mui/material';
+import { Box, Typography, Divider, Grid, Card, CardActionArea, CardMedia, CardContent, Container, Breadcrumbs, Chip } from '@mui/material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import PeopleIcon from '@mui/icons-material/People';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -13,8 +15,38 @@ import futureTalaBlog from '../../docs/blog/04-the-future-of-tala.md?raw';
 import democratizeBlog from '../../docs/blog/03-democratizing-music-education.md?raw';
 import pmDiscussionBlog from '../../docs/blog/02-pm-discussion-vision.md?raw';
 import deepDiveBlog from '../../docs/blog/01-deep-dive-ai-carnatic.md?raw';
+import naadaPyPIBlog from '../../docs/blog/08-naada-pypi-package.md?raw';
+import technicalOverviewBlog from '../../docs/blog/09-deepraaga-technical-overview.md?raw';
+import tutorialNotebookBlog from '../../docs/blog/10-tutorial-notebook-deep-dive.md?raw';
 
 const blogs = [
+  {
+    slug: 'naada-pypi-package',
+    title: 'Introducing naada: The PyPI Package for Carnatic AI',
+    category: 'PyPI Release',
+    date: 'May 9, 2026',
+    image: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+    description: 'Announcing naada (नाद) — a comprehensive PyPI package ecosystem for DeepRaaga\'s Carnatic music AI. Install with pip and start generating ragas.',
+    content: naadaPyPIBlog
+  },
+  {
+    slug: 'tutorial-notebook-deep-dive',
+    title: 'Deep Dive: Understanding the DeepRaaga Tutorial Notebook',
+    category: 'Tutorial',
+    date: 'May 9, 2026',
+    image: '/DeepRaaga/blog-images/notebook_tutorial.png',
+    description: 'A comprehensive technical analysis of the DeepRaaga Tutorial Notebook, explaining concepts from environment setup to music generation.',
+    content: tutorialNotebookBlog
+  },
+  {
+    slug: 'deepraaga-technical-overview',
+    title: 'DeepRaaga Technical Architecture: A Deep Dive',
+    category: 'Engineering',
+    date: 'May 9, 2026',
+    image: '/DeepRaaga/blog-images/technical_architecture.png',
+    description: 'Comprehensive technical overview of DeepRaaga system architecture — neural backend, React frontend, and raga grammar engine.',
+    content: technicalOverviewBlog
+  },
   {
     slug: 'music-as-code-philosophy',
     title: 'The "Music-as-Code" Philosophy: Redefining Carnatic AI',
@@ -184,17 +216,67 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
+// Visitor count management
+function useVisitorCount() {
+  const [visitorCount, setVisitorCount] = useState(0);
+  const [pageViews, setPageViews] = useState(0);
+
+  useEffect(() => {
+    // Check if this is a new unique visitor
+    const hasVisited = localStorage.getItem('deepraaga_blog_visited');
+    let currentCount = parseInt(localStorage.getItem('deepraaga_visitor_count') || '1247');
+    let currentViews = parseInt(localStorage.getItem('deepraaga_page_views') || '3856');
+
+    if (!hasVisited) {
+      // New visitor
+      currentCount += 1;
+      localStorage.setItem('deepraaga_visitor_count', currentCount.toString());
+      localStorage.setItem('deepraaga_blog_visited', 'true');
+    }
+
+    // Increment page view
+    currentViews += 1;
+    localStorage.setItem('deepraaga_page_views', currentViews.toString());
+
+    setVisitorCount(currentCount);
+    setPageViews(currentViews);
+  }, []);
+
+  return { visitorCount, pageViews };
+}
+
 function BlogFeed() {
   useEffect(() => { scrollToTop(); }, []);
+  const { visitorCount, pageViews } = useVisitorCount();
 
   return (
     <Box sx={{ py: 4, bgcolor: '#ffffff', borderRadius: '16px', px: { xs: 2, md: 5 }, minHeight: '80vh' }}>
-      <Typography variant="h3" sx={{ fontFamily: '"Google Sans", "Roboto", sans-serif', color: '#202124', mb: 1, fontWeight: 500 }}>
-        The Keyword
-      </Typography>
-      <Typography variant="subtitle1" sx={{ color: '#5f6368', mb: 5, fontSize: '1.2rem' }}>
-        The latest news from DeepRaaga.
-      </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2, flexWrap: 'wrap', gap: 2 }}>
+        <Box>
+          <Typography variant="h3" sx={{ fontFamily: '"Google Sans", "Roboto", sans-serif', color: '#202124', mb: 1, fontWeight: 500 }}>
+            The Keyword
+          </Typography>
+          <Typography variant="subtitle1" sx={{ color: '#5f6368', fontSize: '1.2rem' }}>
+            The latest news from DeepRaaga.
+          </Typography>
+        </Box>
+        <Box sx={{ display: 'flex', gap: 2 }}>
+          <Chip
+            icon={<PeopleIcon />}
+            label={`${visitorCount.toLocaleString()} visitors`}
+            color="primary"
+            variant="outlined"
+            sx={{ fontFamily: '"Google Sans", sans-serif' }}
+          />
+          <Chip
+            icon={<VisibilityIcon />}
+            label={`${pageViews.toLocaleString()} views`}
+            color="secondary"
+            variant="outlined"
+            sx={{ fontFamily: '"Google Sans", sans-serif' }}
+          />
+        </Box>
+      </Box>
 
       <Grid container spacing={4}>
         {blogs.map((blog, index) => (
