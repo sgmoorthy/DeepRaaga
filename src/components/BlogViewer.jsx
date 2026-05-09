@@ -25,7 +25,7 @@ const blogs = [
     title: 'Introducing naada: The PyPI Package for Carnatic AI',
     category: 'PyPI Release',
     date: 'May 9, 2026',
-    image: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+    image: 'https://placehold.co/800x400/D35400/FFFFFF/png?text=naada+PyPI+Package',
     description: 'Announcing naada (नाद) — a comprehensive PyPI package ecosystem for DeepRaaga\'s Carnatic music AI. Install with pip and start generating ragas.',
     content: naadaPyPIBlog
   },
@@ -34,7 +34,7 @@ const blogs = [
     title: 'Deep Dive: Understanding the DeepRaaga Tutorial Notebook',
     category: 'Tutorial',
     date: 'May 9, 2026',
-    image: '/DeepRaaga/blog-images/notebook_tutorial.png',
+    image: 'https://placehold.co/800x400/1a73e8/FFFFFF/png?text=Tutorial+Notebook',
     description: 'A comprehensive technical analysis of the DeepRaaga Tutorial Notebook, explaining concepts from environment setup to music generation.',
     content: tutorialNotebookBlog
   },
@@ -43,7 +43,7 @@ const blogs = [
     title: 'DeepRaaga Technical Architecture: A Deep Dive',
     category: 'Engineering',
     date: 'May 9, 2026',
-    image: '/DeepRaaga/blog-images/technical_architecture.png',
+    image: 'https://placehold.co/800x400/2e7d32/FFFFFF/png?text=Technical+Architecture',
     description: 'Comprehensive technical overview of DeepRaaga system architecture — neural backend, React frontend, and raga grammar engine.',
     content: technicalOverviewBlog
   },
@@ -52,7 +52,7 @@ const blogs = [
     title: 'The "Music-as-Code" Philosophy: Redefining Carnatic AI',
     category: 'Philosophy',
     date: 'April 15, 2026',
-    image: '/DeepRaaga/blog-images/music_as_code_hero.png',
+    image: '/DeepRaaga/images/deepraga_ui.png',
     description: 'DeepRaaga pioneeringly treats Indian Classical Music as Code. Ragas are logical schemas, compositions are versioned artifacts, and pedagogy is CI/CD.',
     content: musicAsCodeBlog
   },
@@ -61,7 +61,7 @@ const blogs = [
     title: 'Join the Chorus: How to Contribute to DeepRaaga',
     category: 'Open Source',
     date: 'April 14, 2026',
-    image: '/DeepRaaga/blog-images/opensource_contribution.png',
+    image: 'https://placehold.co/800x400/6a1b9a/FFFFFF/png?text=Open+Source',
     description: 'We need the collaborative power of ML engineers, React developers, and Carnatic musicians to build this National Knowledge Repository.',
     content: contributeBlog
   },
@@ -70,7 +70,7 @@ const blogs = [
     title: 'Inside the DeepRaaga Neural Engine: Code Internals',
     category: 'Engineering',
     date: 'April 13, 2026',
-    image: '/DeepRaaga/blog-images/deepraaga_code_internals.png',
+    image: 'https://placehold.co/800x400/00695c/FFFFFF/png?text=Code+Internals',
     description: 'Popping the hood to show exactly how the DeepRaaga core models operate on a code level from data ingestion to FASTApi generation.',
     content: deepraagaCodeInternalsBlog
   },
@@ -88,7 +88,7 @@ const blogs = [
     title: 'Democratizing Carnatic Music Education Through AI',
     category: 'Education',
     date: 'April 11, 2026',
-    image: '/DeepRaaga/blog-images/ai_digital_shishya.png',
+    image: 'https://placehold.co/800x400/c62828/FFFFFF/png?text=AI+Education',
     description: 'Building a pedagogical tool meant to democratize classical music education on a global scale.',
     content: democratizeBlog
   },
@@ -97,7 +97,7 @@ const blogs = [
     title: 'Beyond Melody: The Computational Challenge of Carnatic Rhythm',
     category: 'Algorithms',
     date: 'April 12, 2026',
-    image: '/DeepRaaga/blog-images/carnatic_rhythm_tala.png',
+    image: 'https://placehold.co/800x400/1565c0/FFFFFF/png?text=Carnatic+Rhythm',
     description: 'Solving one of the most complex computational problems in musicology: generating Tala-aware sequences.',
     content: futureTalaBlog
   },
@@ -106,7 +106,7 @@ const blogs = [
     title: 'Demystifying DeepRaaga: How AI Learns Grammar',
     category: 'Deep Learning',
     date: 'April 9, 2026',
-    image: '/DeepRaaga/blog-images/carnatic_lstm_flow.png',
+    image: 'https://placehold.co/800x400/4527a0/FFFFFF/png?text=AI+Grammar+Learning',
     description: 'Harmonizing traditional Indian Classical Music with Artificial Intelligence requires teaching the machine the profound, nuanced grammar.',
     content: deepDiveBlog
   }
